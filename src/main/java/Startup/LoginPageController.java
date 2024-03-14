@@ -25,6 +25,11 @@ public class LoginPageController {
     }
 
     @FXML
+    public void initialize(){
+        APIservice.Connect();
+    }
+
+    @FXML
     private void LogInButton_Pressed(){
 
         String s = APIservice.sendLoginRequest(userNameField.getText(), passwordField.getText());

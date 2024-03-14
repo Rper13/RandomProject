@@ -1,6 +1,8 @@
 package Startup;
 
+import API.APIservice;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -16,6 +18,12 @@ public class Entry extends Application {
 
         LoginPageController controller = fxmlLoader.getController();
         controller.setStage(stage);
+
+        stage.setOnCloseRequest(event -> {
+            System.out.println("Closing application...");
+            APIservice.closeSocket();
+            Platform.exit();
+        });
 
         stage.setTitle("Welcome to login page");
         stage.setScene(scene);
