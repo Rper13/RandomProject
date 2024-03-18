@@ -13,8 +13,6 @@ public class APIservice {
     private static final int PORT = 9999;
 
     private static final String KEY = "brr";
-    private static String EXTERNAL_SERVER_IP = "";//178.134.118.65
-    private static String INTERNAL_SERVER_IP = "";//192.168.0.100
 
     private static Socket connection;
 
@@ -41,8 +39,9 @@ public class APIservice {
 
             properties.load(input);
 
-            EXTERNAL_SERVER_IP = encrypt(KEY,properties.getProperty("external_server_ip"),false);
-            INTERNAL_SERVER_IP = encrypt(KEY,properties.getProperty("internal_server_ip"), false);
+            String EXTERNAL_SERVER_IP = encrypt(KEY, properties.getProperty("external_server_ip"), false);
+
+            String INTERNAL_SERVER_IP = encrypt(KEY, properties.getProperty("internal_server_ip"), false);
 
             URL url = new URL("https://checkip.amazonaws.com");
             BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
