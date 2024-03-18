@@ -32,10 +32,8 @@ public class APIservice {
     public static void Connect() {
 
         Properties properties = new Properties();
-        String rootPath = System.getProperty("user.dir");
-        String relativePath = "src/main/java/API/config.properties";
 
-        try (FileInputStream input = new FileInputStream(rootPath + "/" + relativePath)){
+        try (InputStream input = APIservice.class.getResourceAsStream("/config.properties")){
 
             properties.load(input);
 
