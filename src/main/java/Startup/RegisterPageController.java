@@ -52,21 +52,23 @@ public class RegisterPageController {
     @FXML
     private void registerButtonPressed(){
 
-        if(!passwordField.getText().equals(passwordField2.getText()) || passwordField.getText().length() < 1){
-            new Thread(() -> {
-                Platform.runLater(() -> {
-                    errorLabel.setText("Passwords do not match");
-                    errorLabel.setVisible(true);
-                });
-
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-                    System.out.println("Sleeping interrupted :(");
-                }
-                Platform.runLater(() -> errorLabel.setVisible(false));
-
-            }).start();
+        if(nameField.getText().length() < 2){
+            errorLabel("Please enter your name");
+            return;
+        }else if(lastNameField.getText().length() < 2){
+            errorLabel("Please enter your last name");
+            return;
+        }else if(usernameField.getText().length() < 4){
+            errorLabel("Username must contain at least 4 characters");
+            return;
+        }else if(!passwordField.getText().equals(passwordField2.getText()) || passwordField.getText().length() < 1){
+            errorLabel("Passwords do not match");
+            return;
+        } else if(phoneNumField.getText().matches(".*[^1-9].*")){
+            errorLabel("Phone number has to contain only numbers");
+            return;
+        }else if(phoneNumField.getText().length() < 9){
+            errorLabel("Enter your phone number without (+995). just 9 digits.");
             return;
         }
 
@@ -79,8 +81,35 @@ public class RegisterPageController {
         );
 
         System.out.println(res);
+        if(res.equals("Succesfully Registered")){
+            currentStage.close();
+            parentStage.show();
+        }
         new Alert(Alert.AlertType.INFORMATION,res, ButtonType.FINISH).show();
     }
 
+    private void errorLabel(String errorText){
+        new Thread(() -> {
+            Platform.runLater(() -> {
+                errorLabel.setText(errorText);
+                errorLabel.setVisible(true);
+            });
+
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                System.out.println("Sleeping interrupted :(");
+            }
+            Platform.runLater(() -> errorLabel.setVisible(false));
+
+        }).start();
+    }
+
+    @FXML
+    private void fieldAction(){
+
+        registerButtonPressed();
+
+    }
 
 }
