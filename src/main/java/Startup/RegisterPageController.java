@@ -81,11 +81,11 @@ public class RegisterPageController {
         );
 
         System.out.println(res);
-        if(res.equals("Succesfully Registered")){
+        if(res.equals("Successfully Registered")){
             currentStage.close();
             parentStage.show();
         }
-        new Alert(Alert.AlertType.INFORMATION,res, ButtonType.FINISH).show();
+        new Alert(Alert.AlertType.INFORMATION, res , ButtonType.FINISH).show();
     }
 
     private void errorLabel(String errorText){

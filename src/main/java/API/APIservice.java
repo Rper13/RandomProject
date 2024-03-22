@@ -117,8 +117,7 @@ public class APIservice {
 
     public static void closeSocket() {
         try {
-            // writer.close();
-            // reader.close();
+
             if (!(connection == null || connection.isClosed()))
                 connection.close();
 

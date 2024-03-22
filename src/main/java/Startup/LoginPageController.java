@@ -3,7 +3,6 @@ package Startup;
 import API.APIservice;
 import Creators.SceneBuilder;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -31,10 +30,12 @@ public class LoginPageController {
     @FXML
     private void LogInButton_Pressed(){
 
-        String s = APIservice.sendLoginRequest(userNameField.getText(), passwordField.getText());
-        Alert a = new Alert(Alert.AlertType.INFORMATION);
-        a.setContentText(s);
-        a.show();
+        String response = APIservice.sendLoginRequest(userNameField.getText(), passwordField.getText());
+
+        if(response.equals("Successfully Registered")){
+
+        }
+
     }
 
     @FXML
