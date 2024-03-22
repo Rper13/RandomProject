@@ -1,9 +1,8 @@
 package Startup;
 
 import API.APIservice;
+import Creators.SceneBuilder;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -43,16 +42,16 @@ public class LoginPageController {
 
         currentStage.hide();
 
+        SceneBuilder sceneBuilder =
+                new SceneBuilder(LoginPageController.class.getResource("register-page.fxml")).
+                        setSize(400,600);
+
         Stage registerStage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(Entry.class.getResource("register-page.fxml"));
-        registerStage.setScene(new Scene(fxmlLoader.load(), 400,600));
+        registerStage.setScene(sceneBuilder.build());
 
-        RegisterPageController registerPageController = fxmlLoader.getController();
-        registerPageController.setStages(registerStage, currentStage);
+        ((RegisterPageController) sceneBuilder.getController()).setStages(registerStage, currentStage);
 
-        registerStage.setTitle("Please Register");
         registerStage.show();
-
     }
 
     @FXML

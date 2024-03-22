@@ -6,4 +6,6 @@ module com.example.chat {
 
     opens Startup to javafx.fxml;
     exports Startup;
+    exports Other;
+    opens Other to javafx.fxml;
 }
