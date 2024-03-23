@@ -11,6 +11,7 @@ public class SceneBuilder {
     private final FXMLLoader fxmlLoader;
     private double width = 400;
     private double height = 600;
+    private String CSSpath;
 
     public SceneBuilder(URL fxml){
 
@@ -23,8 +24,18 @@ public class SceneBuilder {
         return this;
     }
 
+    public SceneBuilder setCSS(String path){
+        CSSpath = path;
+        return this;
+    }
+
     public Scene build() throws IOException {
-        return new Scene(fxmlLoader.load(), width, height);
+        Scene scene = new Scene(fxmlLoader.load(), width, height);
+        if (CSSpath != null && !CSSpath.isEmpty()) {
+            String cssUrl = getClass().getResource(CSSpath).toExternalForm();
+            scene.getStylesheets().add(cssUrl);
+        }
+        return scene;
     }
 
     public Object getController(){

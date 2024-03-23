@@ -34,7 +34,7 @@ public class LoginPageController {
 
         try {
             Scene scene = new SceneBuilder(HomePageController.class.getResource("home-page.fxml"))
-                    .setSize(800, 500).build();
+                    .setSize(800, 500).setCSS("/CSS/Node Styles.css").build();
             currentStage.setScene(scene);
             currentStage.setTitle("Welcome inside");
 

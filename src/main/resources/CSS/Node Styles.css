@@ -1,0 +1,10 @@
+.profile-pictures{
+    -fx-border-radius: 50;
+}
+
+.profile-pictures{
+    -fx-border-width: 3px;
+    -fx-border-radius: 5;
+    -fx-border-color: GREEN;
+    -fx-background-radius: 50;
+}
