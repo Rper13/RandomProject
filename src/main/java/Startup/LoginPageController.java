@@ -5,7 +5,6 @@ import Creators.SceneBuilder;
 import HomePage.HomePageController;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -33,22 +32,32 @@ public class LoginPageController {
     @FXML
     private void LogInButton_Pressed() {
 
-        String response = APIservice.sendLoginRequest(userNameField.getText(), passwordField.getText());
-        System.out.println(response);
-        if(response.equals("Success")){
-            try {
-                Scene scene = new SceneBuilder(HomePageController.class.getResource("home-page.fxml"))
-                        .setSize(800, 500).build();
-                currentStage.setScene(scene);
-                currentStage.setTitle("Welcome inside");
+        try {
+            Scene scene = new SceneBuilder(HomePageController.class.getResource("home-page.fxml"))
+                    .setSize(800, 500).build();
+            currentStage.setScene(scene);
+            currentStage.setTitle("Welcome inside");
 
-            }catch (Exception e){
-                System.out.println(e.getMessage());
-            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
-        else{
-            new Alert(Alert.AlertType.ERROR, "Wrong Credentials");
-        }
+
+//        String response = APIservice.sendLoginRequest(userNameField.getText(), passwordField.getText());
+//        System.out.println(response);
+//        if(response.equals("Success")){
+//            try {
+//                Scene scene = new SceneBuilder(HomePageController.class.getResource("home-page.fxml"))
+//                        .setSize(800, 500).build();
+//                currentStage.setScene(scene);
+//                currentStage.setTitle("Welcome inside");
+//
+//            }catch (Exception e){
+//                System.out.println(e.getMessage());
+//            }
+//        }
+//        else{
+//            new Alert(Alert.AlertType.ERROR, "Wrong Credentials");
+//        }
 
     }
 
