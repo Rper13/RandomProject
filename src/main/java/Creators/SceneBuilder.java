@@ -15,8 +15,7 @@ public class SceneBuilder {
     public SceneBuilder(URL fxml){
 
         fxmlLoader = new FXMLLoader(fxml);
-
-    }
+       }
 
     public SceneBuilder setSize(double width, double height){
         this.width = width;
@@ -31,5 +30,4 @@ public class SceneBuilder {
     public Object getController(){
         return fxmlLoader.getController();
     }
-
 }

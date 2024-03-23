@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.TextFlow?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HomePage.HomePageController">
    <right>
       <HBox prefHeight="400.0" prefWidth="265.0" BorderPane.alignment="CENTER">
          <children>
             <Separator orientation="VERTICAL" prefHeight="200.0" />
             <VBox HBox.hgrow="ALWAYS">
                <children>
-                  <TextFlow fx:id="textFlowChat" VBox.vgrow="ALWAYS" />
+                  <TextFlow fx:id="chatTextFlow" VBox.vgrow="ALWAYS" />
                   <Separator prefWidth="200.0" />
-                  <TextField fx:id="textFieldMessage" prefHeight="31.0" prefWidth="146.0" VBox.vgrow="ALWAYS" />
+                  <TextField fx:id="messageTextField" prefHeight="31.0" prefWidth="146.0" VBox.vgrow="ALWAYS" />
                   <Separator prefWidth="200.0" />
                </children>
             </VBox>
@@ -21,4 +21,20 @@
          </children>
       </HBox>
    </right>
+   <left>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </GridPane>
+   </left>
 </BorderPane>

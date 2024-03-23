@@ -8,4 +8,5 @@ module com.example.chat {
     exports Startup;
     exports Other;
     opens Other to javafx.fxml;
+    opens HomePage to javafx.fxml;
 }
