@@ -2,6 +2,7 @@ module com.example.chat {
     requires javafx.controls;
     requires javafx.fxml;
     requires jasypt;
+    requires java.desktop;
 
 
     opens Startup to javafx.fxml;
