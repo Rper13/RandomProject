@@ -1,9 +1,10 @@
-package Startup;
+package Main;
 
 import API.APIservice;
+import Controllers.LoginPageController;
+import Creators.SceneBuilder;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -13,10 +14,11 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login-page.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        SceneBuilder sceneBuilder = new SceneBuilder(LoginPageController.class.getResource("login-page.fxml"))
+                .setSize(600,400);
+        Scene scene = sceneBuilder.build();
 
-        LoginPageController controller = fxmlLoader.getController();
+        LoginPageController controller = (LoginPageController) sceneBuilder.getController();
         controller.setStage(stage);
 
         stage.setOnCloseRequest(event -> {

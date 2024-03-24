@@ -1,6 +1,4 @@
-package Other;
-
-import Startup.Main;
+package Main;
 
 public class Exporter {
     public static void main(String[] args) {

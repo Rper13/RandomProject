@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HomePage.HomePageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.HomePageController">
    <right>
       <HBox prefHeight="400.0" prefWidth="265.0" BorderPane.alignment="CENTER">
          <children>
@@ -32,19 +32,23 @@
       </HBox>
    </right>
    <left>
-      <GridPane BorderPane.alignment="CENTER">
+      <GridPane fx:id="homePageGrid" BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="9.0" prefWidth="18.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="101.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="249.0" minWidth="10.0" prefWidth="181.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="106.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="249.0" minWidth="10.0" prefWidth="176.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="136.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="143.0" minHeight="0.0" prefHeight="111.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="399.0" minHeight="10.0" prefHeight="247.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="113.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="143.0" minHeight="0.0" prefHeight="36.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="399.0" minHeight="10.0" prefHeight="351.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Circle fx:id="userProfileImage" fill="#1f93ff75" radius="39.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" />
+            <Circle fx:id="userProfileImage" fill="#1f93ff75" radius="39.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="uploadPhotoButton" mnemonicParsing="false" prefHeight="24.0" prefWidth="86.0" text="Upload Photo" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Button>
          </children>
       </GridPane>
    </left>

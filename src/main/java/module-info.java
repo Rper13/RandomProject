@@ -5,9 +5,8 @@ module com.example.chat {
     requires java.desktop;
 
 
-    opens Startup to javafx.fxml;
-    exports Startup;
-    exports Other;
-    opens Other to javafx.fxml;
-    opens HomePage to javafx.fxml;
+    opens Main to javafx.fxml;
+    exports Main;
+    opens Controllers to javafx.fxml;
+    exports Controllers;
 }

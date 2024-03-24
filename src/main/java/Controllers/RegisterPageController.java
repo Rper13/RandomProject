@@ -1,4 +1,4 @@
-package Startup;
+package Controllers;
 
 import API.APIservice;
 import javafx.application.Platform;
