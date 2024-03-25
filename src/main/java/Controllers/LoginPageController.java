@@ -32,7 +32,6 @@ public class LoginPageController {
 
     @FXML
     private void LogInButton_Pressed() {
-        Navigation.goToHomePage(currentStage);
 
         String response = APIservice.sendLoginRequest(userNameField.getText(), passwordField.getText());
         if(response.equals("Success")){
