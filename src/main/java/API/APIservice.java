@@ -61,7 +61,7 @@ public class APIservice {
 
             connection = new Socket(serverIp, PORT);
 
-            System.out.println("Connected with IP: " + connection.getLocalAddress().getHostAddress());
+            System.out.println("Connected.");
 
             writer = new DataOutputStream(connection.getOutputStream());
             reader = new DataInputStream(connection.getInputStream());

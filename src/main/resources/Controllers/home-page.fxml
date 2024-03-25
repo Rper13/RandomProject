@@ -17,7 +17,7 @@
                         <Font name="Cascadia Mono Regular" size="24.0" />
                      </font>
                   </Label>
-                  <ScrollPane prefHeight="471.0" prefWidth="253.0" VBox.vgrow="SOMETIMES">
+                  <ScrollPane fx:id="chatScrollPane" prefHeight="471.0" prefWidth="253.0" VBox.vgrow="SOMETIMES">
                      <content>
                         <TextFlow fx:id="chatTextFlow" />
                      </content>

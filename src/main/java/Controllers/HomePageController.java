@@ -1,8 +1,10 @@
 package Controllers;
 
 import GlobalScope.FXfunctions;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
@@ -16,6 +18,8 @@ import javafx.stage.Stage;
 public class HomePageController {
 
     @FXML
+    private ScrollPane chatScrollPane;
+    @FXML
     private TextFlow chatTextFlow;
 
     @FXML
@@ -28,6 +32,7 @@ public class HomePageController {
     private GridPane homePageGrid;
     @FXML
     private Button uploadPhotoButton;
+
 
 
     @FXML
@@ -78,6 +83,11 @@ public class HomePageController {
 
 
         chatTextFlow.getChildren().addAll(hBox, new Text("\n"));
+
+        Platform.runLater(() -> {
+            chatScrollPane.setVvalue(1.0);
+        });
+
     }
 
 }
