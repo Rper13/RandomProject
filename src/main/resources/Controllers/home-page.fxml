@@ -23,7 +23,7 @@
                      </content>
                   </ScrollPane>
                   <Separator prefWidth="200.0" />
-                  <TextField fx:id="messageTextField" prefHeight="31.0" prefWidth="146.0" VBox.vgrow="ALWAYS" />
+                  <TextField fx:id="messageTextField" onAction="#messageTextFieldAction" prefHeight="31.0" prefWidth="146.0" VBox.vgrow="ALWAYS" />
                   <Separator prefWidth="200.0" />
                </children>
             </VBox>
@@ -43,8 +43,8 @@
           <RowConstraints maxHeight="399.0" minHeight="10.0" prefHeight="351.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Circle fx:id="userProfileImage" fill="#1f93ff75" radius="39.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="uploadPhotoButton" mnemonicParsing="false" prefHeight="24.0" prefWidth="86.0" text="Upload Photo" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Circle fx:id="userProfileCircle" fill="#1f93ff75" radius="39.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="uploadPhotoButton" mnemonicParsing="false" onAction="#uploadPhotoButtonClicked" prefHeight="24.0" prefWidth="86.0" text="Upload Photo" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <font>
                   <Font size="11.0" />
                </font>
