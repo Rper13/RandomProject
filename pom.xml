@@ -89,7 +89,7 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <finalName>Chat Client</finalName>
+                            <finalName>Client</finalName>
                             <shadedArtifactAttached>true</shadedArtifactAttached>
                             <transformers>
                                 <transformer implementation=
