@@ -3,6 +3,7 @@ package Controllers;
 import API.APIservice;
 import Creators.SceneBuilder;
 import GlobalScope.Navigation;
+import Objects.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
@@ -31,11 +32,16 @@ public class LoginPageController {
 
     @FXML
     private void LogInButton_Pressed() {
-
+        Navigation.goToHomePage(currentStage);
 
         String response = APIservice.sendLoginRequest(userNameField.getText(), passwordField.getText());
         if(response.equals("Success")){
+            User.setUser(APIservice.sendUserInfoRequest(userNameField.getText()));
             Navigation.goToHomePage(currentStage);
+
+            System.out.println(User.getInstance().getLast_name());
+
+
         }
         else{
             new Alert(Alert.AlertType.ERROR, "Wrong Credentials");

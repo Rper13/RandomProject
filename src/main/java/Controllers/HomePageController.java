@@ -1,9 +1,11 @@
 package Controllers;
 
 import GlobalScope.FXfunctions;
+import Objects.User;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -33,6 +35,13 @@ public class HomePageController {
     @FXML
     private Button uploadPhotoButton;
 
+    @FXML
+    private Label nameLabel;
+    @FXML
+    private Label lastNameLabel;
+    @FXML
+    private Label usernameLabel;
+
 
 
     @FXML
@@ -44,9 +53,17 @@ public class HomePageController {
             userProfileCircle.setFill(new ImagePattern(image));
             userProfileCircle.getStyleClass().add("profile-pictures");
 
+            nameLabel.setText("A");
+            lastNameLabel.setText("B");
+            usernameLabel.setText("C");
+
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+
+        nameLabel.setText(User.getInstance().getName());
+        lastNameLabel.setText(User.getInstance().getLast_name());
+        usernameLabel.setText(User.getInstance().getUsername());
 
     }
 
@@ -63,6 +80,8 @@ public class HomePageController {
 
     @FXML
     private void messageTextFieldAction(){
+
+
 
         if(messageTextField.getText().equals("")) return;
 

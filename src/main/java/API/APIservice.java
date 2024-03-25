@@ -1,5 +1,6 @@
 package API;
 
+import Objects.User;
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 
 import java.io.*;
@@ -16,8 +17,8 @@ public class APIservice {
 
     private static Socket connection;
 
-    private static DataOutputStream writer = null;
-    private static DataInputStream reader = null;
+    private static ObjectInputStream reader = null;
+    private static ObjectOutputStream writer = null;
 
     public static Socket getConnection() {
         return connection;
@@ -63,8 +64,8 @@ public class APIservice {
 
             System.out.println("Connected.");
 
-            writer = new DataOutputStream(connection.getOutputStream());
-            reader = new DataInputStream(connection.getInputStream());
+            writer = new ObjectOutputStream(new DataOutputStream(connection.getOutputStream()));
+            reader = new ObjectInputStream(new DataInputStream(connection.getInputStream()));
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -135,5 +136,23 @@ public class APIservice {
         }
         return encryptor.decrypt(data);
 
+    }
+
+    public static User sendUserInfoRequest(String username){
+        retryConnection();
+
+        try {
+            String data = "API:USER_INFO:" + username;
+            writer.writeUTF(data);
+            writer.flush();
+            //TODO: msg is sent and here we must implement receiving object body.
+
+            return (User)reader.readObject();
+
+        } catch (Exception e) {
+            System.out.println("Exception happened while retrieving user: " +e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
     }
 }
