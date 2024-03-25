@@ -4,6 +4,7 @@ import API.APIservice;
 import Creators.SceneBuilder;
 import GlobalScope.Navigation;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -32,16 +33,13 @@ public class LoginPageController {
     private void LogInButton_Pressed() {
 
 
-        Navigation.goToHomePage(currentStage);
-
-
-//        String response = APIservice.sendLoginRequest(userNameField.getText(), passwordField.getText());
-//        if(response.equals("Success")){
-//            Navigation.goToHomePage(currentStage);
-//        }
-//        else{
-//            new Alert(Alert.AlertType.ERROR, "Wrong Credentials");
-//        }
+        String response = APIservice.sendLoginRequest(userNameField.getText(), passwordField.getText());
+        if(response.equals("Success")){
+            Navigation.goToHomePage(currentStage);
+        }
+        else{
+            new Alert(Alert.AlertType.ERROR, "Wrong Credentials");
+        }
 
     }
 

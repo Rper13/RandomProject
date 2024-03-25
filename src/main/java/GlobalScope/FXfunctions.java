@@ -26,8 +26,7 @@ public class FXfunctions {
 
         if(file != null){
             System.out.println("Image uploaded: " + file.getAbsolutePath());
-            Image image = new Image(file.toURI().toString());
-            return image;
+            return new Image(file.toURI().toString());
         }
 
         return null;
